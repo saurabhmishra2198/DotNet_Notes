@@ -25,7 +25,7 @@ namespace Practical_8
                 string branch = Console.ReadLine();
                 Console.Write("Enter Student city: ");
                 string city = Console.ReadLine();
-                Console.Write("Enter fee amount");
+                Console.Write("Enter fee amount: ");
                 decimal amount = Convert.ToDecimal(Console.ReadLine());
 
                 try

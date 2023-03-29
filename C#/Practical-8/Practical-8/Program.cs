@@ -6,6 +6,10 @@ namespace Practical_8
     {
         static void Main(string[] args)
         {
+            MainMenu();
+        }
+        public static void MainMenu()
+        {
             int choice;
             do
             {
@@ -44,7 +48,6 @@ namespace Practical_8
                     Console.WriteLine("\nSome exception found");
                 }
             } while (choice != 0);
-
         }
         public static void StudentMenu()
         {
@@ -55,7 +58,7 @@ namespace Practical_8
                 Console.WriteLine("\n\t\t-----------Student Menu-----------");
                 Console.WriteLine("\t\t1. GetStudentDetails");
                 Console.WriteLine("\t\t2. DisplayStudentRecord");
-                Console.WriteLine("\t\t0. Exit");
+                Console.WriteLine("\t\t3. Go to main menu");
                 Console.Write("Option:");
                 option = Convert.ToInt32(Console.ReadLine());
                 try
@@ -68,8 +71,8 @@ namespace Practical_8
                         case 2:
                             handleStudent.DisplayStudentRecord();
                             break;
-                        case 0:
-                            Environment.Exit(0);
+                        case 3:
+                            MainMenu();
                             break;
                         default:
                             Console.WriteLine("\nInvalid input");
@@ -98,7 +101,7 @@ namespace Practical_8
                 Console.WriteLine("\t\t1. DisplayCourseRecord");
                 Console.WriteLine("\t\t2. Course Registraction");
                 Console.WriteLine("\t\t3. Check Scholarship");
-                Console.WriteLine("\t\t0. Exit");
+                Console.WriteLine("\t\t4. Go to main menu");
                 Console.Write("Option:");
                 option = Convert.ToInt32(Console.ReadLine());
                 try
@@ -118,7 +121,7 @@ namespace Practical_8
                             scholarship.PrintAmount();
                             break;
                         case 0:
-                            Environment.Exit(0);
+                            MainMenu();
                             break;
                         default:
                             Console.WriteLine("\nInvalid input");
