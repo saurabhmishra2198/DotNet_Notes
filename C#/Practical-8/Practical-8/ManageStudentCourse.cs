@@ -9,15 +9,12 @@ namespace Practical_8
 {
     public abstract class StudentCourseRegister
     {
-        public  abstract void TakeStudentDetails();
-        public abstract void TakeCourseDetails();
+        public  abstract void TakeStudentDetails(List<Student> students);
+        public abstract void TakeCourseDetails(List<Course> Courses);
         public abstract void TotalCourses();
     }
     public class ManageStudentCourse : StudentCourseRegister
     {
-        HandleStudentDetails handleStudent = new HandleStudentDetails();
-        HandleCourses handleCourses = new HandleCourses();
-
         List<RegisterCourses> TotalCourse = new List<RegisterCourses>();
 
         public int Id;
@@ -25,11 +22,10 @@ namespace Practical_8
         public string CourseId;
         public string CourseName;
         public decimal Amount;
-        public override void TakeStudentDetails()
+        public override void TakeStudentDetails(List<Student> students)
         {
-            Console.WriteLine("Enter Your id: ");
+            Console.Write("Enter Your id: ");
             int StudId = Convert.ToInt32(Console.ReadLine());
-            List<Student> students = handleStudent.GetStudent();
             foreach (Student student in students)
             {
                 if(student.StudentId == StudId)
@@ -39,11 +35,10 @@ namespace Practical_8
                 }
             }
         }
-        public override void TakeCourseDetails()
+        public override void TakeCourseDetails(List<Course> Courses)
         {
-            Console.WriteLine("Enter course id: ");
+            Console.Write("Enter course id: ");
             string CourseId = Console.ReadLine();
-            List<Course> Courses = handleCourses.GetCourse();
             foreach (Course course in Courses)
             {
                 if (course.CourseId == CourseId)
@@ -65,6 +60,7 @@ namespace Practical_8
                 CourseAmount = Amount,
             };
             TotalCourse.Add(registerCourses);
+            Console.WriteLine("\nCourse Registraction successfully!");
         }
         public List<RegisterCourses> GetRegisterCourses()
         {

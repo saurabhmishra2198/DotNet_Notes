@@ -9,18 +9,16 @@ namespace Practical_8
 {
     public interface IScholarStudent
     {
-        public void FindScholarStudent();
+        public void FindScholarStudent(List<RegisterCourses> registers);
         public void PrintAmount();
     }
     public sealed class Scholarship : IScholarStudent
     {
-        ManageStudentCourse manageStudent = new ManageStudentCourse();
         private decimal _ScholarshipAmount;
-        public void FindScholarStudent()
+        public void FindScholarStudent(List<RegisterCourses> registers)
         {
             Console.WriteLine("Enter Your id: ");
             int StudId = Convert.ToInt32(Console.ReadLine());
-            List<RegisterCourses> registers = manageStudent.GetRegisterCourses();
             decimal TotalAmountSum = 0;
             foreach(RegisterCourses register in registers)
             {
@@ -33,7 +31,7 @@ namespace Practical_8
         }
         public void PrintAmount()
         {
-            Console.WriteLine("Scholarship amount is: {0}", _ScholarshipAmount);
+            Console.WriteLine("\nScholarship amount is: {0}", _ScholarshipAmount);
         }
     }
 }

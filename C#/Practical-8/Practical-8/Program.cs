@@ -4,6 +4,10 @@ namespace Practical_8
 {
     internal class Program
     {
+        static HandleStudentDetails handleStudent = new HandleStudentDetails();
+        static ManageStudentCourse manageStudentCourse = new ManageStudentCourse();
+        static HandleCourses handleCourses = new HandleCourses();
+        static Scholarship scholarship = new Scholarship();
         static void Main(string[] args)
         {
             MainMenu();
@@ -52,7 +56,6 @@ namespace Practical_8
         public static void StudentMenu()
         {
             int option;
-            HandleStudentDetails handleStudent = new HandleStudentDetails();
             do
             {
                 Console.WriteLine("\n\t\t-----------Student Menu-----------");
@@ -92,9 +95,6 @@ namespace Practical_8
         public static void CourseMenu()
         {
             int option;
-            HandleCourses handleCourses = new HandleCourses();
-            ManageStudentCourse manageStudentCourse = new ManageStudentCourse();
-            Scholarship scholarship = new Scholarship();
             do
             {
                 Console.WriteLine("\n\t\t-----------Student Menu-----------");
@@ -112,15 +112,15 @@ namespace Practical_8
                             handleCourses.DisplayCoursesDetails();
                             break;
                         case 2:
-                            manageStudentCourse.TakeStudentDetails();
-                            manageStudentCourse.TakeCourseDetails();
+                            manageStudentCourse.TakeStudentDetails(handleStudent.GetStudent());
+                            manageStudentCourse.TakeCourseDetails(handleCourses.GetCourse());
                             manageStudentCourse.TotalCourses();
                             break;
                         case 3:
-                            scholarship.FindScholarStudent();
+                            scholarship.FindScholarStudent(manageStudentCourse.GetRegisterCourses());
                             scholarship.PrintAmount();
                             break;
-                        case 0:
+                        case 4:
                             MainMenu();
                             break;
                         default:
